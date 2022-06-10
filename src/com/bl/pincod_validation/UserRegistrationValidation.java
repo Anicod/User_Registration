@@ -4,8 +4,11 @@ import java.util.regex.Pattern;
 public class UserRegistrationValidation {
     String userNameValidation = "[A-Z][a-z]{4,}";
     String userLastName = "[A-Z][a-z]{2,}";
+
+
     boolean validateFirstName;
     boolean validateLastname;
+    boolean validateContact;
     boolean validateFirstName(String name){
         validateFirstName = Pattern.matches(userNameValidation, name);
         return validateFirstName;
@@ -14,5 +17,6 @@ public class UserRegistrationValidation {
         validateLastname = Pattern.matches(userLastName, lastName);
         return validateLastname;
     }
+
 
 }

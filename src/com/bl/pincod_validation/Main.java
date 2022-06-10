@@ -8,6 +8,7 @@ public class Main {
         System.out.println("welcome to the User registration Program");
         UserRegistrationValidation userRegistrationValidation = new UserRegistrationValidation();
         UserRegistrationValidation userlastnamevalidation = new UserRegistrationValidation();
+        UserRegistrationValidation userContactValidation = new UserRegistrationValidation();
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the First name of the user\n");
@@ -17,6 +18,7 @@ public class Main {
         String lastName = scanner.next();
         boolean userLastName = userlastnamevalidation.validateLastName(lastName);
 
+
         if(firstName == true)
             System.out.println("First name is validate successfully");
         else
@@ -25,8 +27,6 @@ public class Main {
             System.out.println("Last Name Validate successfully");
         else
             System.out.println("enter valid last name");
-
-
 
     }
 }
