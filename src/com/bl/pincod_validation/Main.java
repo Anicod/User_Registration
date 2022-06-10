@@ -9,6 +9,7 @@ public class Main {
         UserRegistrationValidation userRegistrationValidation = new UserRegistrationValidation();
         UserRegistrationValidation userlastnamevalidation = new UserRegistrationValidation();
         UserRegistrationValidation userContactValidation = new UserRegistrationValidation();
+        UserRegistrationValidation uservalidatepassword = new UserRegistrationValidation();
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the First name of the user\n");
@@ -20,6 +21,10 @@ public class Main {
         System.out.println("enter a user Contact Number");
         String userContact = scanner.next();
         boolean contactNumberValidation = userContactValidation.validateContact(userContact);
+        System.out.println("enter a user password");
+        String userPassword = scanner.next();
+        boolean validateUserPassword = uservalidatepassword.validatePassword(userPassword);
+
 
         if(firstName == true)
             System.out.println("First name is validate successfully");
@@ -33,6 +38,10 @@ public class Main {
             System.out.println("Contact number validate Successfully");
         else
         System.out.println("enter valid Contact number");
+        if(validateUserPassword == true)
+            System.out.println("password validate password successfully");
+        else
+            System.out.println("enter a valid password");
 
     }
 }
