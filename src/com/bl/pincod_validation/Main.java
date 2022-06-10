@@ -17,7 +17,9 @@ public class Main {
         System.out.println("enter the last name of the user\n");
         String lastName = scanner.next();
         boolean userLastName = userlastnamevalidation.validateLastName(lastName);
-
+        System.out.println("enter a user Contact Number");
+        String userContact = scanner.next();
+        boolean contactNumberValidation = userContactValidation.validateContact(userContact);
 
         if(firstName == true)
             System.out.println("First name is validate successfully");
@@ -27,6 +29,10 @@ public class Main {
             System.out.println("Last Name Validate successfully");
         else
             System.out.println("enter valid last name");
+        if(contactNumberValidation == true)
+            System.out.println("Contact number validate Successfully");
+        else
+        System.out.println("enter valid Contact number");
 
     }
 }
