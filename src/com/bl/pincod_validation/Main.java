@@ -1,49 +1,34 @@
 package com.bl.pincod_validation;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
+    static final String NAME_PATTERN = "[A-Z][a-z]{2,}";
+    static final String CONTACT_NUMBER_PATTERN = "[0-9]{2}\\s[1-9][0-9]{9}$";
 
     public static void main(String[] args) {
-        System.out.println("welcome to the User registration Program");
-        UserRegistrationValidation userRegistrationValidation = new UserRegistrationValidation();
-        UserRegistrationValidation userlastnamevalidation = new UserRegistrationValidation();
-        UserRegistrationValidation userContactValidation = new UserRegistrationValidation();
-        UserRegistrationValidation uservalidatepassword = new UserRegistrationValidation();
+        RegexPattern firstName = ((inputDetails, pattern) -> Pattern.matches(inputDetails, pattern));
+        RegexPattern lastName = ((inputDetails, pattern) -> Pattern.matches(inputDetails, pattern));
+        RegexPattern contactNumber = ((inputDetails, pattern) -> Pattern.matches(inputDetails, pattern));
         Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter the First name of the user\n");
-        String userName = scanner.next();
-        boolean firstName = userRegistrationValidation.validateFirstName(userName);
-        System.out.println("enter the last name of the user\n");
-        String lastName = scanner.next();
-        boolean userLastName = userlastnamevalidation.validateLastName(lastName);
-        System.out.println("enter a user Contact Number");
-        String userContact = scanner.next();
-        boolean contactNumberValidation = userContactValidation.validateContact(userContact);
-        System.out.println("enter a user password");
-        String userPassword = scanner.next();
-        boolean validateUserPassword = uservalidatepassword.validatePassword(userPassword);
-
-
-        if(firstName == true)
-            System.out.println("First name is validate successfully");
+        System.out.println("enter the first name");
+        String inputFirstName = scanner.next();
+        System.out.println("enter last name");
+        String inputLastName = scanner.next();
+        System.out.println("enter contact number");
+        String inputContactNumber = scanner.next();
+        if (firstName.pattern(NAME_PATTERN, inputFirstName))
+            System.out.println("first name is validate successfully");
         else
-            System.out.println("enter a first valid name");
-        if(userLastName == true)
-            System.out.println("Last Name Validate successfully");
+            System.out.println("enter valid input");
+        if (lastName.pattern(NAME_PATTERN, inputLastName))
+            System.out.println("last name validate successfully");
         else
             System.out.println("enter valid last name");
-        if(contactNumberValidation == true)
-            System.out.println("Contact number validate Successfully");
+        if (contactNumber.pattern(CONTACT_NUMBER_PATTERN, inputContactNumber))
+            System.out.println("contact number validate succcessfully");
         else
-        System.out.println("enter valid Contact number");
-        if(validateUserPassword == true)
-            System.out.println("password validate password successfully");
-        else
-            System.out.println("enter a valid password");
-
+            System.out.println("enter valid contact number");
     }
 }
-
-
